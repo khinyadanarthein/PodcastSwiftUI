@@ -13,7 +13,7 @@ struct YourShowsView: View {
         HStack {
                 Image("podcast-hour")
                 .resizable()
-                .frame(width: 100, height: 150, alignment: .leading)
+                .frame(width: 110, height: 150, alignment: .leading)
                 .scaledToFit()
                 .cornerRadius(20)
                 
@@ -21,7 +21,7 @@ struct YourShowsView: View {
                 Text("Category")
                     .padding([.leading,.trailing])
                     .padding([.top, .bottom], 8)
-                    .background(Color.pink)
+                    .background(Color.random)
                     .cornerRadius(15)
                 Text("Woman n Techpost Host by Espree Devona")
                     .font(.system(size: 18, weight: .bold))
@@ -31,7 +31,6 @@ struct YourShowsView: View {
                     .font(.system(size: 15, weight: .regular))
                     .lineLimit(1)
             }.frame(maxWidth : .infinity)
-            
         }
     }
 }
@@ -39,5 +38,14 @@ struct YourShowsView: View {
 struct YourShowsView_Previews: PreviewProvider {
     static var previews: some View {
         YourShowsView()
+    }
+}
+
+extension Color {
+    static var random : Color {
+        return Color(
+            red: .random(in: 0...1),
+            green: .random(in: 0.7...0.8),
+            blue: .random(in: 0.8...0.9))
     }
 }

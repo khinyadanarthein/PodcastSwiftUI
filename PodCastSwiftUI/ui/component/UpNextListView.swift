@@ -10,7 +10,7 @@ import SwiftUI
 
 struct UpNextListView: View {
     
-    @State var value : CGFloat = 0
+    @State var value : CGFloat = 10
     	
     var body: some View {
        HStack {
@@ -26,21 +26,22 @@ struct UpNextListView: View {
                 Text("Category")
                     .padding([.leading,.trailing])
                     .padding([.top, .bottom], 8)
-                    .background(Color.pink)
+                    .background(Color(UIColor(named: "sky-blue")!))
                     .cornerRadius(15)
                 Text("Woman n Techpost Host by Espree Devona")
-                    .font(.system(size: 18, weight: .bold))
+                    .font(.system(size: 15, weight: .bold))
                     .lineLimit(2)
-                
-                ProgressView(color: .red, completionPercentage: $value)
-                .frame(height: 7)
+               
+                HStack {
+                    ProgressView(color : UIColor(named: "sky-blue")!, completionPercentage: $value)
+                                   .frame(height: 7)
+                    
+                    Text("1hr left").font(.system(size: 13))
+                }.frame(maxWidth: .infinity)
+               
                 
             }.frame(maxWidth : .infinity, maxHeight: .infinity)
-            
-//            Image(systemName: "icloud.and.arrow.down")
-//            .resizable()
-//            .frame(width: 40, height: 30, alignment: .center)
-//            .scaledToFit()
+           
                 Image(systemName: "icloud.and.arrow.down").font(.system(size: 25, weight: .regular))
                 .foregroundColor(Color.pink)
         }

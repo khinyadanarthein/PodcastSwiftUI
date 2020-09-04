@@ -15,8 +15,8 @@ struct MainTabView: View {
             .tabItem {(
                 VStack {
                     Image(systemName: "equal.square")
-                        .font(.system(size: 27, weight: .regular))
-                    Text("home")
+                        .font(.system(size: 24, weight: .regular))
+                    //Text("home")
                 }
                 )}
             .tag(0)
@@ -24,8 +24,8 @@ struct MainTabView: View {
             SearchShowsView()
             .tabItem {(
                 VStack {
-                    Image(systemName: "magnifyingglass").font(.system(size: 27, weight: .regular))
-                    Text("search")
+                    Image(systemName: "magnifyingglass").font(.system(size: 24, weight: .regular))
+                    //Text("search")
                     }
 
                 )}
@@ -34,8 +34,8 @@ struct MainTabView: View {
             UserShowsView()
             .tabItem {(
                 VStack {
-                    Image(systemName: "icloud.and.arrow.down").font(.system(size: 27, weight: .regular))
-                    Text("cloud")
+                    Image(systemName: "icloud.and.arrow.down").font(.system(size: 24, weight: .regular))
+                    //Text("cloud")
                     }
 
                 )}
@@ -44,8 +44,8 @@ struct MainTabView: View {
             ShowDetailView()
             .tabItem {(
                 VStack {
-                    Image(systemName: "person.crop.square").font(.system(size: 27, weight: .regular))
-                    Text("User")
+                    Image(systemName: "person.crop.square").font(.system(size: 24, weight: .regular))
+                    //Text("User")
                     }
 
                 )}

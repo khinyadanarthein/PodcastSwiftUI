@@ -53,28 +53,10 @@ struct ShowDetailView: View {
                     .cornerRadius(15)
                     .multilineTextAlignment(.leading)
                 
-                Button(action: {
-
-                    if let path = Bundle.main.path(forResource: "a", ofType: ".mp3") {
-
-                        self.audioPlayer = AVAudioPlayer()
-
-                        self.isPlaying.toggle()
-
-                        let url = URL(fileURLWithPath: path)
-
-                        do {
-                            self.audioPlayer = try AVAudioPlayer(contentsOf: url)
-                            self.audioPlayer?.prepareToPlay()
-                            self.audioPlayer?.play()
-                        }catch {
-                            print("Error")
-                        }
-                    }
-
-                }, label: {
-                    Text("Play")
-                })
+                MusicPlayerView()
+                .cornerRadius(15)
+                .padding([.top, .bottom])
+                
             }.frame(maxWidth : .infinity, alignment: .leading)
             
             
