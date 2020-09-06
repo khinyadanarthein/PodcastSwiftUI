@@ -13,6 +13,12 @@ struct HomeView: View {
     
     @ObservedObject var model = DataModelImpl()
     
+    init() {
+        //To hide List scrollbars & seperator
+        UITableView.appearance().showsVerticalScrollIndicator = false
+        UITableView.appearance().separatorStyle = .none
+    }
+    
     var body: some View {
         NavigationView {
             List {
@@ -30,11 +36,12 @@ struct HomeView: View {
                         bottom: 0,
                         trailing: 0))
                 
-            }.padding([.leading, .trailing] ,15)
-                .onAppear(perform: loadData)
-                .navigationBarTitle("")
-                .navigationBarBackButtonHidden(true)
-                .navigationBarHidden(true)
+            }
+            .padding([.leading, .trailing] ,15)
+            .onAppear(perform: loadData)
+            .navigationBarTitle("")
+            .navigationBarBackButtonHidden(true)
+            .navigationBarHidden(true)
         }
         
     }
@@ -43,7 +50,7 @@ struct HomeView: View {
         model.getEpisodeList(genreId: 140, page: 1)
         model.getListenPodCast()
     }
-  
+    
 }
 
 

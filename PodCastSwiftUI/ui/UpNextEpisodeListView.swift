@@ -16,19 +16,29 @@ struct UpNextEpisodeListView: View {
     
     
     var body: some View {
-        Section(header: UpNextHeaderSection().background(Color(UIColor.white))) {
-            ForEach(episodeList, id : \.id, content: {
-                data in
-                
+        
+        VStack(alignment: .leading) {
+            HStack {
+                Text("Up Next")
+                    .font(.system(size: 32, weight: .bold))
+                Spacer()
+                Image(systemName: "ellipsis")
+            }
+            .padding([.leading, .trailing], 15)
+            
+            ForEach(episodeList, id : \.id, content: { data in
                 NavigationLink(destination: ShowDetailView(), label: {
                     UpNextListView(episode: data)
-                    
                 })
-                
-                
             })
             
         }
     }
 }
 
+
+struct UpNextEpisodeListView_Preview : PreviewProvider {
+    static var previews : some View {
+        UpNextEpisodeListView()
+    }
+}

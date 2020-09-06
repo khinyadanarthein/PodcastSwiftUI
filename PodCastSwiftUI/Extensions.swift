@@ -34,6 +34,7 @@ extension URL {
                     try FileManager.default.removeItem(at: destination)
                 }
                 try FileManager.default.moveItem(at: location, to: destination)
+                
                 completion(destination, nil)
             } catch {
                 print(error)

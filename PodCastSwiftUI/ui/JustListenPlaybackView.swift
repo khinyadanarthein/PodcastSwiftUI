@@ -14,8 +14,22 @@ struct JustListenPlaybackView : View {
     ]) var justListen : FetchedResults<ListenPodcast>
     
     var body : some View {
-        Section(header: PodCastHeaderSection().background(Color(UIColor.white))) {
-            
+        VStack {
+            HStack {
+                Image(systemName: "waveform").font(.system(size: 30, weight: .regular))
+                Text("PodCast")
+                    .font(.system(size: 20, weight: .bold))
+                    .frame(maxWidth : .infinity, alignment: .leading)
+                
+                ZStack {
+                    Circle()
+                        .frame(width: 50, height: 50, alignment: .center)
+                        .foregroundColor(Color(UIColor.lightText))
+                    Image(systemName: "bell").font(.system(size: 20, weight: .regular))
+                }
+                
+                
+            }
             MusicPlayerView(listenPod: justListen.last)
                 .cornerRadius(15)
                 .padding([.top, .bottom])
@@ -29,5 +43,13 @@ struct JustListenPlaybackView : View {
                 .multilineTextAlignment(.leading)
             
         }
+           
+        
+    }
+}
+
+struct JustListenPlaybackView_Preview : PreviewProvider {
+    static var previews: some View {
+        JustListenPlaybackView()
     }
 }
