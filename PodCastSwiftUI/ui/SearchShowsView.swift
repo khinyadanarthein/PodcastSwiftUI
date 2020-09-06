@@ -52,32 +52,7 @@ struct SearchShowsView: View {
     }
     
     func loadGenre() {
-        model.getGenreList(success: { (datalist) in
-            
-            //self.genreList = datalist
-            //let genres = [GenreVO(id: 1, name: "Tech", parentID: 1), GenreVO(id: 2, name: "IT", parentID: 2)]
-            
-            for data in datalist {
-                if !self.isExist(id: data.id) {
-                    
-                    let genre = Genre(context :context)
-                    genre.id = Int64(data.id)
-                    genre.name = data.name
-                    genre.parentId = Int64(data.parentID ?? 0)
-                }
-            }
-            
-            do {
-                try context.save()
-            
-            } catch {
-                print("fail to save")
-            }
-            
-        }) { (error) in
-            print(error)
-            
-        }
+        model.getGenreList()
     }
     
     func isExist(id : Int) -> Bool {

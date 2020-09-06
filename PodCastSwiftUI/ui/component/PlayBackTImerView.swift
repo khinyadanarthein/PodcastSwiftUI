@@ -40,6 +40,7 @@ struct PlayerActionView : View {
                         .frame(width: defaultSizePlayBackIconsWidth, height: defaultSizePlayBackIconsHeight)
                         .padding()
                         .onTapGesture {
+                            
                             self.model.audioPlayer.pause()
                             self.isPlaying = false
                     }
@@ -49,7 +50,7 @@ struct PlayerActionView : View {
                         .frame(width: defaultSizePlayBackIconsWidth, height: defaultSizePlayBackIconsHeight)
                         .padding()
                         .onTapGesture {
-                            
+                            self.model.isBuffering = true
                             self.model.audioPlayer.play()
                             self.isPlaying = true
                     }

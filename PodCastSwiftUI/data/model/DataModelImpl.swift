@@ -14,11 +14,7 @@ class DataModelImpl : ObservableObject {
     
     //static let shared : DataModelImpl = DataModelImpl()
     let api : Api = ApiClient.shared
-   
-    @Published var episodeData = [EpisodeData]()
-    
-    @Published var justListenCast = ListenPodcast(context: context)
-    
+
     init() {}
 
 }
@@ -47,7 +43,6 @@ extension DataModelImpl : DataModel{
             
             do {
                 try context.save()
-            
             } catch {
                 print("fail to save")
             }
@@ -64,20 +59,21 @@ extension DataModelImpl : DataModel{
     func getListenPodCast() {
         
         api.getJustListen(success: { (data) in
-            
-            let listen = ListenPodcast(context :context)
-            listen.id = data.id
-            listen.title = data.title
-            listen.castDescription = data.listenPodCastResponseDescription
-            listen.audioUrl = data.audio
-            listen.audioLength = Int64(data.audioLengthSEC)
-            listen.link = data.link
-            listen.listennoteUrl = data.listennotesURL
-            listen.publishDate = "\(data.pubDateMS)"
-            listen.thumbnail = data.thumbnail
-            
+
             let entity = String(describing: ListenPodcast.self)
             if !Utils.shared.isExist(id: data.id, entity: entity) {
+                
+                let listen = ListenPodcast(context :context)
+                listen.id = data.id
+                listen.title = data.title
+                listen.castDescription = data.listenPodCastResponseDescription
+                listen.audioUrl = data.audio
+                listen.audioLength = Int64(data.audioLengthSEC)
+                listen.link = data.link
+                listen.listennoteUrl = data.listennotesURL
+                listen.publishDate = "\(data.pubDateMS)"
+                listen.thumbnail = data.thumbnail
+                
                 
                 do {
                     try context.save()
@@ -87,8 +83,7 @@ extension DataModelImpl : DataModel{
                 }
                 
             }
-            self.justListenCast = listen
-            
+
             
             //success(data)
             

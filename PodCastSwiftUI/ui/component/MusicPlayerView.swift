@@ -12,10 +12,8 @@ import AVKit
 struct MusicPlayerView: View {
     
     @State private var isPlaying : Bool = false
-    @Binding var currentPlaybackTimeInSec : CGFloat
-    
+
     @ObservedObject var model : MusicPlayerModel
-    
     
     @FetchRequest(entity: ListenPodcast.entity(), sortDescriptors: [
            NSSortDescriptor(key: "id", ascending: true)
@@ -23,11 +21,10 @@ struct MusicPlayerView: View {
     
     var listen : ListenPodcast
     
-    init(listenPod: ListenPodcast,_ currentPlaybackTimeInSec : Binding<CGFloat> = .constant(0)) {
+    init(listenPod: ListenPodcast) {
         listen = listenPod
         model = MusicPlayerModel(song: Song(name: listen.title ?? "", url: listen.audioUrl ?? "https://www.listennotes.com/e/p/11b34041e804491b9704d11f283c74de/"))
         //model.song = Song(name: listen.title!, url: listen.audioUrl!)
-        self._currentPlaybackTimeInSec = currentPlaybackTimeInSec
     }
     
     var body: some View {
@@ -35,11 +32,16 @@ struct MusicPlayerView: View {
         VStack {
             
             HStack {
-                Image("Podcast-Cover-artist")
-                    .resizable()
-                    .frame(width: 70,height : 70)
-                    .scaledToFit()
-                    .padding([.leading,.top])
+                VStack {
+                    Image("Podcast-Cover-artist")
+                        .resizable()
+                        .frame(width: 70,height : 70)
+                        .scaledToFit()
+                        .padding([.leading,.top])
+                    
+                    
+                    ActivityIndicator(isAnimating: $model.isBuffering, style: .large)
+                }
                 
                 VStack {
                     Text("\(model.song.name)")
@@ -96,7 +98,7 @@ class Song {
 }
 
 class MusicPlayerModel: ObservableObject {
-    var audioPlayer : AVPlayer
+    var audioPlayer : AVPlayer!
     var song : Song
 //    var name : String
 //    var url : String
@@ -107,6 +109,7 @@ class MusicPlayerModel: ObservableObject {
     @Published var currentPlaybackTimeInSec : CGFloat = 0
     @Published var completionPercentage : CGFloat = 0
     @Published var musicPlaybackRate: Float = 1
+    @Published var isBuffering : Bool = false
     
     private var playbackDuration : CGFloat = 0
     var timeObserverToken : Any?
@@ -114,6 +117,7 @@ class MusicPlayerModel: ObservableObject {
     init(song : Song) {
         self.song = song
         self.audioPlayer = AVPlayer(url: URL(string: song.playbackUrl)!)
+        print(song.playbackUrl)
         addTimeObserver()
     }
     
@@ -123,6 +127,7 @@ class MusicPlayerModel: ObservableObject {
             playbackDuration = CGFloat(duration.seconds)
             playbackRange = 0...playbackDuration
             
+          
             self.playbackDurationTime = TimeUtils().getSecondsTimeFormat(seconds: Int(duration.seconds))
         }
         
@@ -144,6 +149,17 @@ class MusicPlayerModel: ObservableObject {
             self?.currentPlaybackTimeInSec = CGFloat(time.seconds)
             self?.onGoingPlaybackTime = TimeUtils().getSecondsTimeFormat(seconds: Int(time.seconds))
             self?.calculateCompletionPercentage()
+            
+            
+            let playbackLikelyToKeepUp = self?.audioPlayer.currentItem?.isPlaybackLikelyToKeepUp ?? false
+            self?.isBuffering = !playbackLikelyToKeepUp
+//            if playbackLikelyToKeepUp == false{
+//                print("IsBuffering")
+//            } else {
+//                //stop the activity indicator
+//                print("Buffering completed")
+//            }
+          
         }
     }
     
@@ -188,3 +204,19 @@ class MusicPlayerModel: ObservableObject {
     }
 }
 
+
+struct ActivityIndicator: UIViewRepresentable {
+
+    @Binding var isAnimating: Bool
+    let style: UIActivityIndicatorView.Style
+
+    func makeUIView(context: UIViewRepresentableContext<ActivityIndicator>) -> UIActivityIndicatorView {
+        let view = UIActivityIndicatorView(style: style)
+        view.color = .white
+        return view
+    }
+
+    func updateUIView(_ uiView: UIActivityIndicatorView, context: UIViewRepresentableContext<ActivityIndicator>) {
+        isAnimating ? uiView.startAnimating() : uiView.stopAnimating()
+    }
+}
