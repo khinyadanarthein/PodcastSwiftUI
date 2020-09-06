@@ -11,9 +11,11 @@ import Foundation
 class Song {
     var name : String
     var playbackUrl: String
+    var imageUrl : String
     
-    init(name : String, url : String) {
+    init(name : String, url : String, image : String) {
         self.name = name
         playbackUrl = url
+        imageUrl = image
     }
 }

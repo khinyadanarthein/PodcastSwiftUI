@@ -38,7 +38,7 @@ struct HomeView: View {
                 
             }
             .padding([.leading, .trailing] ,15)
-            .onAppear(perform: loadData)
+            //.onAppear(perform: loadData)
             .navigationBarTitle("")
             .navigationBarBackButtonHidden(true)
             .navigationBarHidden(true)

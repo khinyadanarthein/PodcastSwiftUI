@@ -12,6 +12,7 @@ protocol DataModel {
     
     func getEpisodeList(genreId : Int, page: Int)
     
+    func getEpisodeDetail(id : String, success: @escaping (EpisodeDetailResponse) -> Void, fail: @escaping (String) -> Void)
     func getEpisodeDetail(id : String)
     
     func getListenPodCast()

@@ -60,6 +60,9 @@ extension DataModelImpl : DataModel{
             
         }
     }
+    func getEpisodeDetail(id: String, success: @escaping (EpisodeDetailResponse) -> Void, fail: @escaping (String) -> Void) {
+        
+    }
     
     func getEpisodeDetail(id: String) {
 
@@ -73,19 +76,16 @@ extension DataModelImpl : DataModel{
                 episode.audioLengthSec = Int64(response.audioLengthSEC)
                 episode.audioUrl = response.audio
                 
-                let podcast = Podcast()
-                podcast.id = response.podcast.id
-                podcast.title = response.podcast.title
-                podcast.imageUrl = response.podcast.image
-                podcast.thumbail = response.podcast.thumbnail
-                
-                episode.episode_podcast = podcast
-                
 //                self.episodeDetail = episode
                 
 //                self.musicPlayer = MusicPlayerModel()
 //                let song = Song(name: response.title, url: response.audio)
 //                self.musicPlayer.song = song
+                do {
+                    try context.save()
+                } catch {
+                    print("fail to save")
+                }
                 
             }) { (error) in
                 print(error)

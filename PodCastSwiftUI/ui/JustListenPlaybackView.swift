@@ -30,7 +30,7 @@ struct JustListenPlaybackView : View {
                 
                 
             }
-            MusicPlayerView(listenPod: justListen.last)
+            MusicPlayerView(song: Song(name: justListen.first?.title ?? "", url: justListen.first?.audioUrl ?? "https://www.listennotes.com/e/p/11b34041e804491b9704d11f283c74de/",image: justListen.first?.thumbnail ?? ""))
                 .cornerRadius(15)
                 .padding([.top, .bottom])
             

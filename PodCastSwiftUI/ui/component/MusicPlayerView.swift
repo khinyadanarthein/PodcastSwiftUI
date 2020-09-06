@@ -16,13 +16,13 @@ struct MusicPlayerView: View {
 
     @ObservedObject var model : MusicPlayerModel
     
-    @FetchRequest(entity: ListenPodcast.entity(), sortDescriptors: [
-           NSSortDescriptor(key: "id", ascending: true)
-    ]) var justListen : FetchedResults<ListenPodcast>
+//    @FetchRequest(entity: ListenPodcast.entity(), sortDescriptors: [
+//           NSSortDescriptor(key: "id", ascending: true)
+//    ]) var justListen : FetchedResults<ListenPodcast>
         
-    init(listenPod: ListenPodcast?) {
+    init(song : Song) {
         model = MusicPlayerModel.shared
-        model.startPlayer(song: Song(name: listenPod?.title ?? "", url: listenPod?.audioUrl ?? "https://www.listennotes.com/e/p/11b34041e804491b9704d11f283c74de/"))
+        model.startPlayer(song: song)
     }
     
     var body: some View {
@@ -74,6 +74,6 @@ struct MusicPlayerView: View {
 
 struct MusicPlayerView_Previews: PreviewProvider {
     static var previews: some View {
-        MusicPlayerView(listenPod: ListenPodcast(context: context))
+        MusicPlayerView(song: Song(name: "", url: "", image: ""))
     }
 }
