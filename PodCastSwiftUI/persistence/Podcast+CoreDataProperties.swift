@@ -1,8 +1,9 @@
 //
 //  Podcast+CoreDataProperties.swift
-//  
+//  PodCastSwiftUI
 //
 //  Created by Thet Htun on 9/6/20.
+//  Copyright © 2020 Khin Yadanar Thein. All rights reserved.
 //
 //
 
@@ -22,6 +23,5 @@ extension Podcast {
     @NSManaged public var publisher: String?
     @NSManaged public var thumbail: String?
     @NSManaged public var title: String?
-    @NSManaged public var episodes: Episode?
 
 }

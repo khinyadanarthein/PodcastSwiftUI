@@ -15,11 +15,11 @@ class DataModelImpl : ObservableObject {
     //static let shared : DataModelImpl = DataModelImpl()
     let api : Api = ApiClient.shared
     
-    @Published var episodeDetail = Episode(context: context)
+//    @Published var episodeDetail = Episode(context: context)
     
-    @Published var musicPlayer = MusicPlayerModel()
+//    @Published var musicPlayer = MusicPlayerModel()
     
-    @Published var episodeList = [Episode]()
+//    @Published var episodeList = [Episode]()
     
     init() {}
 
@@ -33,7 +33,7 @@ extension DataModelImpl : DataModel{
         api.getPlaylists(genreId: genreId, page: page,pathVariable: "abc", success: { (response) in
             
             //success(response.items)
-            var episodes = [Episode]()
+//            var episodes = [Episode]()
             
             for episode in response.items {
                 if !Utils.shared.isExist(id: String(episode.id), entity: "Episode") {
@@ -45,16 +45,16 @@ extension DataModelImpl : DataModel{
                     data.episodeDescription = episode.data.dataDescription
                     data.imageUrl = episode.data.image
                     data.link = episode.data.link
-                    episodes.append(data)
+//                    episodes.append(data)
                 
                 }
             }
-            self.episodeList = episodes
-//            do {
-//                try context.save()
-//            } catch {
-//                print("fail to save")
-//            }
+//            self.episodeList = episodes
+            do {
+                try context.save()
+            } catch {
+                print("fail to save")
+            }
             
         }) { (error) in
             
@@ -81,11 +81,11 @@ extension DataModelImpl : DataModel{
                 
                 episode.episode_podcast = podcast
                 
-                self.episodeDetail = episode
+//                self.episodeDetail = episode
                 
-                self.musicPlayer = MusicPlayerModel()
-                let song = Song(name: response.title, url: response.audio)
-                self.musicPlayer.song = song
+//                self.musicPlayer = MusicPlayerModel()
+//                let song = Song(name: response.title, url: response.audio)
+//                self.musicPlayer.song = song
                 
             }) { (error) in
                 print(error)
