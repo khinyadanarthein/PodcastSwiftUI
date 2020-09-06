@@ -2,7 +2,7 @@
 //  ListenPodcast+CoreDataProperties.swift
 //  PodCastSwiftUI
 //
-//  Created by Khin Yadanar Thein on 05/09/2020.
+//  Created by Khin Yadanar Thein on 06/09/2020.
 //  Copyright © 2020 Khin Yadanar Thein. All rights reserved.
 //
 //
@@ -17,14 +17,14 @@ extension ListenPodcast {
         return NSFetchRequest<ListenPodcast>(entityName: "ListenPodcast")
     }
 
-    @NSManaged public var id: String?
-    @NSManaged public var title: String?
-    @NSManaged public var castDescription: String?
-    @NSManaged public var audioUrl: String?
-    @NSManaged public var thumbnail: String?
-    @NSManaged public var publishDate: String?
-    @NSManaged public var listennoteUrl: String?
     @NSManaged public var audioLength: Int64
+    @NSManaged public var audioUrl: String?
+    @NSManaged public var castDescription: String?
+    @NSManaged public var id: String?
     @NSManaged public var link: String?
+    @NSManaged public var listennoteUrl: String?
+    @NSManaged public var publishDate: String?
+    @NSManaged public var thumbnail: String?
+    @NSManaged public var title: String?
 
 }

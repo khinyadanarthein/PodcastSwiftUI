@@ -2,7 +2,7 @@
 //  Episode+CoreDataProperties.swift
 //  PodCastSwiftUI
 //
-//  Created by Khin Yadanar Thein on 03/09/2020.
+//  Created by Khin Yadanar Thein on 06/09/2020.
 //  Copyright © 2020 Khin Yadanar Thein. All rights reserved.
 //
 //
@@ -20,7 +20,7 @@ extension Episode {
     @NSManaged public var audioLengthSec: Int64
     @NSManaged public var audioUrl: String?
     @NSManaged public var episodeDescription: String?
-    @NSManaged public var id: Int64
+    @NSManaged public var id: String?
     @NSManaged public var imageUrl: String?
     @NSManaged public var link: String?
     @NSManaged public var title: String?

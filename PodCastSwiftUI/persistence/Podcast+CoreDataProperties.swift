@@ -2,7 +2,7 @@
 //  Podcast+CoreDataProperties.swift
 //  PodCastSwiftUI
 //
-//  Created by Khin Yadanar Thein on 03/09/2020.
+//  Created by Khin Yadanar Thein on 06/09/2020.
 //  Copyright © 2020 Khin Yadanar Thein. All rights reserved.
 //
 //
@@ -17,7 +17,7 @@ extension Podcast {
         return NSFetchRequest<Podcast>(entityName: "Podcast")
     }
 
-    @NSManaged public var id: Int64
+    @NSManaged public var id: String?
     @NSManaged public var imageUrl: String?
     @NSManaged public var listenNote: String?
     @NSManaged public var publisher: String?

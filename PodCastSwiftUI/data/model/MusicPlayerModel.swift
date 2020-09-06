@@ -31,7 +31,7 @@ class MusicPlayerModel: ObservableObject {
     private var playbackDuration : CGFloat = 0
     var timeObserverToken : Any?
     
-    private init() {}
+    public init() {}
     
     func startPlayer(song : Song) {
         if !isPlaying {

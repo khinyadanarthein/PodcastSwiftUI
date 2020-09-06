@@ -32,9 +32,10 @@ struct HomeView: View {
                 
             }.padding([.leading, .trailing] ,15)
                 .onAppear(perform: loadData)
-                .navigationBarTitle("")
-                .navigationBarBackButtonHidden(true)
-                .navigationBarHidden(true)
+            
+            .navigationBarTitle("")
+            .navigationBarBackButtonHidden(true)
+            .navigationBarHidden(true)
         }
         
     }
@@ -46,6 +47,7 @@ struct HomeView: View {
   
 }
 struct JustListenPlaybackView : View {
+    
     @FetchRequest(entity: ListenPodcast.entity(), sortDescriptors: [
         NSSortDescriptor(key: "id", ascending: true)
     ]) var justListen : FetchedResults<ListenPodcast>
@@ -58,7 +60,7 @@ struct JustListenPlaybackView : View {
                 .padding([.top, .bottom])
             
             AttributedText(justListen.last?.castDescription ?? "")
-                .frame(maxWidth : .infinity, maxHeight: 100)
+                .frame(maxWidth : .infinity, maxHeight: 150)
                 .padding()
                 .background(Color.init(UIColor.systemGray5))
                 .cornerRadius(15)
@@ -75,20 +77,22 @@ struct UpNextEpisodeListView: View {
              NSSortDescriptor(key: "id", ascending: true)
       ]) var episodeList : FetchedResults<Episode>
 
-      
+      @ObservedObject var model = DataModelImpl()
+    
     var body: some View {
         Section(header: UpNextHeaderSection().background(Color(UIColor.white))) {
-            ForEach(episodeList, id : \.id, content: {
-                data in
-                
-                NavigationLink(destination: ShowDetailView(), label: {
-                    UpNextListView(episode: data)
-                    
-                })
-                
-                
-            })
+                NavigationLink(destination: ShowDetailView()) {
+                    UpNextListView(episode: episodeList.first!)
+                }
+//            ForEach(episodeList, id : \.id, content: {
+//                data in
+//
+//                NavigationLink(destination: ShowDetailView()) {
+//                    UpNextListView(episode: data)
+//                }
+//            })
             
+        
         }
     }
 }

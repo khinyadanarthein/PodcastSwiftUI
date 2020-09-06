@@ -23,7 +23,6 @@ struct MusicPlayerView: View {
     init(listenPod: ListenPodcast?) {
         model = MusicPlayerModel.shared
         model.startPlayer(song: Song(name: listenPod?.title ?? "", url: listenPod?.audioUrl ?? "https://www.listennotes.com/e/p/11b34041e804491b9704d11f283c74de/"))
-        //model.song = Song(name: listen.title!, url: listen.audioUrl!)
     }
     
     var body: some View {

@@ -56,7 +56,7 @@ struct MainTabView: View {
             }
             
             
-            ShowDetailView()
+            WelcomeSearchView()
             .tabItem {(
                 VStack {
                     Image(systemName: "person.crop.square").font(.system(size: 24, weight: .regular))

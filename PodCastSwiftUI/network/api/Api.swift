@@ -12,7 +12,7 @@ protocol Api {
     
     func getPlaylists(genreId : Int, page: Int, pathVariable : String, success: @escaping (EpisodeListResponse) -> Void, fail: @escaping (String) -> Void)
     
-    func getEpisode(id : Int, success: @escaping (EpisodeDetailResponse) -> Void, fail: @escaping (String) -> Void)
+    func getEpisode(id : String, success: @escaping (EpisodeDetailResponse) -> Void, fail: @escaping (String) -> Void)
     
     func getJustListen(success: @escaping (ListenPodCastResponse) -> Void, fail: @escaping (String) -> Void)
     

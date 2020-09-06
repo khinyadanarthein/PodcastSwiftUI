@@ -11,24 +11,26 @@ import AVKit
 
 struct ShowDetailView: View {
     
-    @State var audioPlayer:AVAudioPlayer?
-
-    @State var isPlaying : Bool = false
+//    @State var audioPlayer:AVAudioPlayer?
+//
+//    @State var isPlaying : Bool = false
+//
+//    @FetchRequest(entity: ListenPodcast.entity(), sortDescriptors: [
+//           NSSortDescriptor(key: "id", ascending: true)
+//    ]) var justListen : FetchedResults<ListenPodcast>
+//
     
-    @FetchRequest(entity: ListenPodcast.entity(), sortDescriptors: [
-           NSSortDescriptor(key: "id", ascending: true)
-    ]) var justListen : FetchedResults<ListenPodcast>
-    
+    @ObservedObject var model = DataModelImpl()
     
     var body: some View {
-        List {
+        ScrollView {
             VStack(spacing : 20) {
                 Image("spotless-podcast-banner")
                     .resizable()
                     .frame(height : 200)
                     .scaledToFit()
                 
-                Text("Designing for everyone, Everywhere with KYT")
+                Text(model.episodeDetail.title ?? "")
                     .font(.system(size: 18, weight: .bold))
                 
                 HStack (spacing : 20){
@@ -49,23 +51,28 @@ struct ShowDetailView: View {
                         Text("10")
                     }
                 }.scaledToFill()
-                .frame(maxWidth : .infinity,alignment : .leading)
+                    .frame(maxWidth : .infinity,alignment : .leading)
                     .padding([.leading, .trailing], 5)
                 
-                Text("At this point, I gave up trying to get TabView to behave like I wanted it to, considering the lack of documentation for TabView, and decided to directly use UITabBarController and embed it in SwiftUI.At this point, I gave up trying to get TabView to behave like I wanted it to, considering the lack of documentation for TabView, and decided to directly use UITabBarController and embed it in SwiftUI.At this point, I gave up trying to get TabView to behave like I wanted it to, considering the lack of documentation for TabView, and decided to directly use UITabBarController and embed it in SwiftUI.")
+                AttributedText(model.episodeDetail.episodeDescription ?? "")
                     .padding()
                     .background(Color.init(UIColor.systemGray5))
                     .cornerRadius(15)
                     .multilineTextAlignment(.leading)
                 
-                MusicPlayerView(listenPod: justListen.first!)
-                .cornerRadius(15)
-                .padding([.top, .bottom])
+                //                    MusicPlayerView(listenPod: <#ListenPodcast?#>)
+                //                    .cornerRadius(15)
+                //                    .padding([.top, .bottom])
                 
             }.frame(maxWidth : .infinity, alignment: .leading)
             
             
-        }
+            }
+        .onAppear(perform: {
+            self.model.getEpisodeDetail(id: "abc")
+        })
+        .padding([.leading, .trailing])
+            .navigationBarTitle("Detail")
     }
 }
 

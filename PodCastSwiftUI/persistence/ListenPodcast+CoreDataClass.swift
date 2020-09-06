@@ -2,7 +2,7 @@
 //  ListenPodcast+CoreDataClass.swift
 //  PodCastSwiftUI
 //
-//  Created by Khin Yadanar Thein on 05/09/2020.
+//  Created by Khin Yadanar Thein on 06/09/2020.
 //  Copyright © 2020 Khin Yadanar Thein. All rights reserved.
 //
 //

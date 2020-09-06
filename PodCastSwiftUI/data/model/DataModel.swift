@@ -12,7 +12,7 @@ protocol DataModel {
     
     func getEpisodeList(genreId : Int, page: Int)
     
-    func getEpisodeDetail(id : Int)
+    func getEpisodeDetail(id : String)
     
     func getListenPodCast()
     

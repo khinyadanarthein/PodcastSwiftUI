@@ -4,7 +4,7 @@
         <attribute name="audioLengthSec" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="audioUrl" optional="YES" attributeType="String"/>
         <attribute name="episodeDescription" optional="YES" attributeType="String"/>
-        <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="id" optional="YES" attributeType="String"/>
         <attribute name="imageUrl" optional="YES" attributeType="String"/>
         <attribute name="link" optional="YES" attributeType="String"/>
         <attribute name="title" optional="YES" attributeType="String"/>
@@ -27,7 +27,7 @@
         <attribute name="title" optional="YES" attributeType="String"/>
     </entity>
     <entity name="Podcast" representedClassName="Podcast" syncable="YES">
-        <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="id" optional="YES" attributeType="String"/>
         <attribute name="imageUrl" optional="YES" attributeType="String"/>
         <attribute name="listenNote" optional="YES" attributeType="String"/>
         <attribute name="publisher" optional="YES" attributeType="String"/>
@@ -37,7 +37,7 @@
     <elements>
         <element name="Episode" positionX="-431.37890625" positionY="-5.94921875" width="128" height="163"/>
         <element name="Genre" positionX="-358.47265625" positionY="-128.4609375" width="128" height="88"/>
-        <element name="Podcast" positionX="-36" positionY="72" width="128" height="133"/>
         <element name="ListenPodcast" positionX="-173.765625" positionY="-149.47265625" width="128" height="178"/>
+        <element name="Podcast" positionX="-36" positionY="72" width="128" height="133"/>
     </elements>
 </model>

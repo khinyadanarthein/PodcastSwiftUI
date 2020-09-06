@@ -36,8 +36,17 @@ extension ApiClient : Api {
         }
     }
     
-    func getEpisode(id: Int, success: @escaping (EpisodeDetailResponse) -> Void, fail: @escaping (String) -> Void) {
+    func getEpisode(id: String, success: @escaping (EpisodeDetailResponse) -> Void, fail: @escaping (String) -> Void) {
         
+        let url = API_GET_PODCAST_DETAIL + "/abc"
+        self.requestApi(url: url, method: .get, params: [:], success: { (response) in
+            
+            let data = try! JSONDecoder().decode(EpisodeDetailResponse.self, from : response)
+            success(data)
+            
+        }) { (error) in
+            fail(error)
+        }
     }
     
     func getJustListen(success: @escaping (ListenPodCastResponse) -> Void, fail: @escaping (String) -> Void) {
