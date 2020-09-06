@@ -13,6 +13,12 @@ struct HomeView: View {
     
     @ObservedObject var model = DataModelImpl()
     
+    init() {
+        //To hide List scrollbars & seperator
+        UITableView.appearance().showsVerticalScrollIndicator = false
+        UITableView.appearance().separatorStyle = .none
+    }
+    
     var body: some View {
         NavigationView {
             List {
@@ -30,9 +36,15 @@ struct HomeView: View {
                         bottom: 0,
                         trailing: 0))
                 
+<<<<<<< HEAD
             }.padding([.leading, .trailing] ,15)
                 .onAppear(perform: loadData)
             
+=======
+            }
+            .padding([.leading, .trailing] ,15)
+            .onAppear(perform: loadData)
+>>>>>>> a1b2513222e7213d03400c3a5221bfd88970a963
             .navigationBarTitle("")
             .navigationBarBackButtonHidden(true)
             .navigationBarHidden(true)
@@ -44,6 +56,7 @@ struct HomeView: View {
         model.getEpisodeList(genreId: 140, page: 1)
         model.getListenPodCast()
     }
+<<<<<<< HEAD
   
 }
 struct JustListenPlaybackView : View {
@@ -96,6 +109,11 @@ struct UpNextEpisodeListView: View {
         }
     }
 }
+=======
+    
+}
+
+>>>>>>> a1b2513222e7213d03400c3a5221bfd88970a963
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {

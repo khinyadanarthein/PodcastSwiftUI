@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import AVFoundation
 
 struct UpNextListView: View {
     
@@ -15,39 +16,51 @@ struct UpNextListView: View {
     
     var body: some View {
         
-       HStack {
-        ImageFromUrlView(withURL: episode.imageUrl ?? "")
-            
         HStack {
-            VStack(alignment: .leading, spacing: 15){
-                Text("Web Design")
-                    .padding([.leading,.trailing])
-                    .padding([.top, .bottom], 8)
-                    .background(Color(UIColor(named: "sky-blue")!))
-                    .cornerRadius(15)
-                Text(episode.title ?? "Sample title")
-                    .font(.system(size: 15, weight: .bold))
-                    .lineLimit(2)
-               
-                HStack {
-                    ProgressView(color : UIColor(named: "sky-blue")!, completionPercentage: $value)
-                                   .frame(height: 7)
+            ImageFromUrlView(withURL: episode.imageUrl ?? "")
+            
+            HStack {
+                VStack(alignment: .leading, spacing: 15){
+                    Text("Web Design")
+                        .padding([.leading,.trailing])
+                        .padding([.top, .bottom], 8)
+                        .background(Color(UIColor(named: "sky-blue")!))
+                        .cornerRadius(15)
+                    Text(episode.title ?? "Sample title")
+                        .font(.system(size: 15, weight: .bold))
+                        .lineLimit(2)
+                    
+                    HStack {
+                        ProgressView(color : UIColor(named: "sky-blue")!, completionPercentage: $value)
+                            .frame(height: 7)
+                        
+                        
+                        Text("\(Utils.shared.secondsToHoursMinutes(seconds: Int(episode.audioLengthSec))) left").font(.system(size: 13))
+                    }.frame(maxWidth: .infinity)
                     
                     
-                    Text("\(Utils.shared.secondsToHoursMinutes(seconds: Int(episode.audioLengthSec))) left").font(.system(size: 13))
-                }.frame(maxWidth: .infinity)
-               
+                }.frame(maxWidth : .infinity, maxHeight: .infinity)
                 
-            }.frame(maxWidth : .infinity, maxHeight: .infinity)
-           
-            Image(systemName: "icloud.and.arrow.down").font(.system(size: 25, weight: .regular))
-            .foregroundColor(Color.pink)
-                .onTapGesture {
-                    print("download")
+                Image(systemName: "icloud.and.arrow.down").font(.system(size: 25, weight: .regular))
+                    .foregroundColor(Color.pink)
+                    .onTapGesture {
+                        let audioUrl = self.episode.audioUrl ?? ""
+                        let audioFile = URL(string: audioUrl)!
+                        do {
+//                            try audioFile.download(to: .documentDirectory) { url, error in
+//                                guard let url = url else { return }
+//                                AVPlayer(url: url).play()
+//                                self.player = AVPlayer(url: url)
+//                                self.player.play()
+//                            }
+                        } catch {
+                            print(error)
+                        }
+                        
+                }
+                
             }
-                
-        }
-           
+            
         }
     }
 }
@@ -61,7 +74,7 @@ struct UpNextListView_Previews: PreviewProvider {
 struct ImageFromUrlView: View {
     @ObservedObject var imageLoader:ImageLoader
     @State var image:UIImage = UIImage()
-
+    
     init(withURL url:String) {
         imageLoader = ImageLoader(urlString:url)
     }
@@ -79,12 +92,12 @@ struct ImageFromUrlView: View {
         }
     }
     
-//    var body: some View {
-//        Image(systemName: "podcast")
-//            .resizable()
-//            .frame(width: 100, height: 150, alignment: .leading)
-//            .scaledToFit()
-//            .cornerRadius(20)
-//            .padding([.top, .bottom])
-//    }
+    //    var body: some View {
+    //        Image(systemName: "podcast")
+    //            .resizable()
+    //            .frame(width: 100, height: 150, alignment: .leading)
+    //            .scaledToFit()
+    //            .cornerRadius(20)
+    //            .padding([.top, .bottom])
+    //    }
 }
