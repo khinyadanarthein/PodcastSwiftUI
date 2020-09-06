@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		51C307612504CB27004B981A /* MusicPlayerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51C307602504CB27004B981A /* MusicPlayerModel.swift */; };
 		51C307632504CB7C004B981A /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51C307622504CB7C004B981A /* ActivityIndicator.swift */; };
+		51C307652504D7EF004B981A /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51C307642504D7EF004B981A /* Extensions.swift */; };
+		51C307672504D84C004B981A /* JustListenPlaybackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51C307662504D84C004B981A /* JustListenPlaybackView.swift */; };
+		51C307692504D865004B981A /* UpNextEpisodeListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51C307682504D865004B981A /* UpNextEpisodeListView.swift */; };
+		51C3076B2504D899004B981A /* Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51C3076A2504D899004B981A /* Song.swift */; };
 		85761084CA6F44804DDDA8C6 /* Pods_PodCastSwiftUI_PodCastSwiftUIUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 106B2BFBCDD05A696266D026 /* Pods_PodCastSwiftUI_PodCastSwiftUIUITests.framework */; };
 		9CB3B87ED3C5DEF3DEB6C823 /* Pods_PodCastSwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 822E47E5934D1AC1722091B6 /* Pods_PodCastSwiftUI.framework */; };
 		C129AD7424FF4F4B00070137 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C129AD7324FF4F4B00070137 /* DataModel.swift */; };
@@ -86,6 +90,10 @@
 		4937F55139F413F4909CF016 /* Pods-PodCastSwiftUI-PodCastSwiftUIUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PodCastSwiftUI-PodCastSwiftUIUITests.release.xcconfig"; path = "Target Support Files/Pods-PodCastSwiftUI-PodCastSwiftUIUITests/Pods-PodCastSwiftUI-PodCastSwiftUIUITests.release.xcconfig"; sourceTree = "<group>"; };
 		51C307602504CB27004B981A /* MusicPlayerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicPlayerModel.swift; sourceTree = "<group>"; };
 		51C307622504CB7C004B981A /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
+		51C307642504D7EF004B981A /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		51C307662504D84C004B981A /* JustListenPlaybackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JustListenPlaybackView.swift; sourceTree = "<group>"; };
+		51C307682504D865004B981A /* UpNextEpisodeListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpNextEpisodeListView.swift; sourceTree = "<group>"; };
+		51C3076A2504D899004B981A /* Song.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Song.swift; path = PodCastSwiftUI/ui/Song.swift; sourceTree = SOURCE_ROOT; };
 		6A70AB645E2CC5AD5B3284F7 /* Pods-PodCastSwiftUI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PodCastSwiftUI.debug.xcconfig"; path = "Target Support Files/Pods-PodCastSwiftUI/Pods-PodCastSwiftUI.debug.xcconfig"; sourceTree = "<group>"; };
 		822E47E5934D1AC1722091B6 /* Pods_PodCastSwiftUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PodCastSwiftUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC44DCD88E0DA66B636DB7C7 /* Pods-PodCastSwiftUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PodCastSwiftUITests.release.xcconfig"; path = "Target Support Files/Pods-PodCastSwiftUITests/Pods-PodCastSwiftUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -247,6 +255,7 @@
 				C14CE1AC24F2676C0028249E /* Info.plist */,
 				C14CE19F24F267670028249E /* PodCastSwiftUI.xcdatamodeld */,
 				C14CE1A624F2676C0028249E /* Preview Content */,
+				51C307642504D7EF004B981A /* Extensions.swift */,
 			);
 			path = PodCastSwiftUI;
 			sourceTree = "<group>";
@@ -288,6 +297,8 @@
 				C14CE1D324F2685A0028249E /* SearchShowsView.swift */,
 				C14CE1D524F268700028249E /* ShowDetailView.swift */,
 				C198B82024F6CC6F00C21D36 /* MainTabView.swift */,
+				51C307662504D84C004B981A /* JustListenPlaybackView.swift */,
+				51C307682504D865004B981A /* UpNextEpisodeListView.swift */,
 			);
 			path = ui;
 			sourceTree = "<group>";
@@ -379,6 +390,7 @@
 		C1A83D3F24FD60950027718B /* vos */ = {
 			isa = PBXGroup;
 			children = (
+				51C3076A2504D899004B981A /* Song.swift */,
 			);
 			path = vos;
 			sourceTree = "<group>";
@@ -646,12 +658,16 @@
 				C129AD7C25001A1E00070137 /* SearchShowViewModelImpl.swift in Sources */,
 				C14CE1D424F2685A0028249E /* SearchShowsView.swift in Sources */,
 				C168CF392500C4E500B90EE6 /* Podcast+CoreDataClass.swift in Sources */,
+				51C307672504D84C004B981A /* JustListenPlaybackView.swift in Sources */,
 				C135AC9424FA08E0006799DF /* ProgressView.swift in Sources */,
 				C15921A025038192006A1B76 /* Utils.swift in Sources */,
 				C168CF3E2500C4E500B90EE6 /* Genre+CoreDataProperties.swift in Sources */,
 				C14CE1D224F268360028249E /* UserShowsView.swift in Sources */,
 				C15921A4250388DB006A1B76 /* ListenPodcast+CoreDataProperties.swift in Sources */,
+				51C307692504D865004B981A /* UpNextEpisodeListView.swift in Sources */,
 				C153AA3A24FEC5B4001E5D64 /* AppConstants.swift in Sources */,
+				51C3076B2504D899004B981A /* Song.swift in Sources */,
+				51C307652504D7EF004B981A /* Extensions.swift in Sources */,
 				C198B82124F6CC6F00C21D36 /* MainTabView.swift in Sources */,
 				C168CF3A2500C4E500B90EE6 /* Podcast+CoreDataProperties.swift in Sources */,
 				C14CE1A124F267670028249E /* PodCastSwiftUI.xcdatamodeld in Sources */,

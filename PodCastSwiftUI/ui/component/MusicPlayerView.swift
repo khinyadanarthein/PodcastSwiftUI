@@ -61,14 +61,7 @@ struct MusicPlayerView: View {
                 }
                 
             }.padding([.trailing], 10)
-            
-            
-//            VStack {
-//               
-//                PlaybackTimerView(onGoingPlaybackTime: $model.onGoingPlaybackTime, playbackDurationTime: $model.playbackDurationTime)
-//                    .foregroundColor(.white)
-//            }.padding([.leading, .trailing], 18)
-            
+
             PlayerActionView(isPlaying: $model.isPlaying)
                 .environmentObject(model)
                 .foregroundColor(Color(.lightText))
@@ -83,15 +76,5 @@ struct MusicPlayerView: View {
 struct MusicPlayerView_Previews: PreviewProvider {
     static var previews: some View {
         MusicPlayerView(listenPod: ListenPodcast(context: context))
-    }
-}
-
-class Song {
-    var name : String
-    var playbackUrl: String
-    
-    init(name : String, url : String) {
-        self.name = name
-        playbackUrl = url
     }
 }

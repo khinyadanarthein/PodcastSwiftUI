@@ -45,53 +45,7 @@ struct HomeView: View {
     }
   
 }
-struct JustListenPlaybackView : View {
-    @FetchRequest(entity: ListenPodcast.entity(), sortDescriptors: [
-        NSSortDescriptor(key: "id", ascending: true)
-    ]) var justListen : FetchedResults<ListenPodcast>
-    
-    var body : some View {
-        Section(header: PodCastHeaderSection().background(Color(UIColor.white))) {
-            
-            MusicPlayerView(listenPod: justListen.last)
-                .cornerRadius(15)
-                .padding([.top, .bottom])
-            
-            AttributedText(justListen.last?.castDescription ?? "")
-                .frame(maxWidth : .infinity, maxHeight: 100)
-                .padding()
-                .background(Color.init(UIColor.systemGray5))
-                .cornerRadius(15)
-                .lineLimit(6)
-                .multilineTextAlignment(.leading)
-            
-        }
-    }
-}
 
-struct UpNextEpisodeListView: View {
-
-    @FetchRequest(entity: Episode.entity(), sortDescriptors: [
-             NSSortDescriptor(key: "id", ascending: true)
-      ]) var episodeList : FetchedResults<Episode>
-
-      
-    var body: some View {
-        Section(header: UpNextHeaderSection().background(Color(UIColor.white))) {
-            ForEach(episodeList, id : \.id, content: {
-                data in
-                
-                NavigationLink(destination: ShowDetailView(), label: {
-                    UpNextListView(episode: data)
-                    
-                })
-                
-                
-            })
-            
-        }
-    }
-}
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
