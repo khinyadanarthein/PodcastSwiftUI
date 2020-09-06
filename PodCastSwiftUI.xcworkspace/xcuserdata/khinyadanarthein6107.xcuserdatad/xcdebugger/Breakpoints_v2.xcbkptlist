@@ -350,7 +350,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "53"
             endingLineNumber = "53"
-            landmarkName = "JustListenPlaybackView"
+            landmarkName = "HomeView"
             landmarkType = "14">
             <Locations>
                <Location
@@ -390,7 +390,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "53436448-27E1-489C-AB1A-15F9303C752D"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PodCastSwiftUI/data/model/DataModelImpl.swift"
@@ -476,10 +476,8 @@
             filePath = "PodCastSwiftUI/ui/HomeView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "90"
-            endingLineNumber = "90"
-            landmarkName = "body"
-            landmarkType = "24">
+            startingLineNumber = "59"
+            endingLineNumber = "59">
             <Locations>
                <Location
                   uuid = "E3040A26-3129-44CC-84B3-04BA0E36CAE4 - d6290965233a2394"
@@ -524,10 +522,8 @@
             filePath = "PodCastSwiftUI/ui/HomeView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "87"
-            endingLineNumber = "87"
-            landmarkName = "body"
-            landmarkType = "24">
+            startingLineNumber = "59"
+            endingLineNumber = "59">
             <Locations>
                <Location
                   uuid = "93F56DD5-8DA7-42EC-A724-CD172E9548C6 - d13942da47b0932e"
@@ -574,8 +570,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "44"
             endingLineNumber = "44"
-            landmarkName = "loadData()"
-            landmarkType = "7">
+            landmarkName = "body"
+            landmarkType = "24">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -588,10 +584,8 @@
             filePath = "PodCastSwiftUI/ui/HomeView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "85"
-            endingLineNumber = "85"
-            landmarkName = "body"
-            landmarkType = "24">
+            startingLineNumber = "59"
+            endingLineNumber = "59">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy

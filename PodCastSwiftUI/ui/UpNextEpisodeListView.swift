@@ -26,10 +26,11 @@ struct UpNextEpisodeListView: View {
             }
             .padding([.leading, .trailing], 15)
             
-            ForEach(episodeList, id : \.id, content: { data in
+            ForEach(episodeList, id : \.self, content: { data in
                 NavigationLink(destination: ShowDetailView(), label: {
                     UpNextListView(episode: data)
                 })
+               // UpNextListView(episode: data)
             })
             
         }

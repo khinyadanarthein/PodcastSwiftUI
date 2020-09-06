@@ -21,7 +21,7 @@ struct HomeView: View {
     
     var body: some View {
         NavigationView {
-            List {
+            ScrollView {
                 JustListenPlaybackView()
                     .listRowInsets(EdgeInsets(
                         top: 0,

@@ -26,9 +26,12 @@ struct UpNextListView: View {
                         .padding([.top, .bottom], 8)
                         .background(Color(UIColor(named: "sky-blue")!))
                         .cornerRadius(15)
+                        .foregroundColor(.black)
+                    
                     Text(episode.title ?? "Sample title")
                         .font(.system(size: 15, weight: .bold))
                         .lineLimit(2)
+                        .foregroundColor(.black)
                     
                     HStack {
                         ProgressView(color : UIColor(named: "sky-blue")!, completionPercentage: $value)
@@ -36,6 +39,7 @@ struct UpNextListView: View {
                         
                         
                         Text("\(Utils.shared.secondsToHoursMinutes(seconds: Int(episode.audioLengthSec))) left").font(.system(size: 13))
+                            .foregroundColor(.black)
                     }.frame(maxWidth: .infinity)
                     
                     
@@ -47,12 +51,12 @@ struct UpNextListView: View {
                         let audioUrl = self.episode.audioUrl ?? ""
                         let audioFile = URL(string: audioUrl)!
                         do {
-//                            try audioFile.download(to: .documentDirectory) { url, error in
-//                                guard let url = url else { return }
-//                                AVPlayer(url: url).play()
-//                                self.player = AVPlayer(url: url)
-//                                self.player.play()
-//                            }
+                            //                            try audioFile.download(to: .documentDirectory) { url, error in
+                            //                                guard let url = url else { return }
+                            //                                AVPlayer(url: url).play()
+                            //                                self.player = AVPlayer(url: url)
+                            //                                self.player.play()
+                            //                            }
                         } catch {
                             print(error)
                         }
@@ -60,7 +64,6 @@ struct UpNextListView: View {
                 }
                 
             }
-            
         }
     }
 }
