@@ -7,9 +7,14 @@
 //
 
 import SwiftUI
+import CoreData
 
 struct WelcomeSearchView: View {
+    
+    @State var isExistShows : Bool = false
+    
     var body: some View {
+        
         ScrollView {
             Image("podcast-space")
                 .resizable()
@@ -45,9 +50,12 @@ struct WelcomeSearchView: View {
                 Button(action: {
                     
                     print("Clicked")
+                    self.isExistShows = self.isExistYourShows()
                     
                 }, label: {
                     Text("Reload")
+                }).sheet(isPresented: $isExistShows, content: {
+                    UserShowsView()
                 })
                     .padding()
                     .frame(maxWidth: .infinity, maxHeight: 60, alignment: .center)
@@ -57,6 +65,16 @@ struct WelcomeSearchView: View {
             }
             
         }.padding([.leading, .trailing])
+    }
+    
+    func isExistYourShows() -> Bool {
+        
+        let entity = String(describing: UserPodcast.self)
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: entity)
+        //fetchRequest.predicate = NSPredicate(format: "id = %d", argumentArray: [id])
+
+        let res = try! context.fetch(fetchRequest)
+        return res.count > 0 ? true : false
     }
 }
 

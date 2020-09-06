@@ -2,7 +2,7 @@
 //  Extensions.swift
 //  PodCastSwiftUI
 //
-//  Created by Thet Htun on 9/6/20.
+//  Created by Khin Yadanar Thein on 06/09/2020.
 //  Copyright © 2020 Khin Yadanar Thein. All rights reserved.
 //
 
@@ -15,10 +15,10 @@ extension URL {
         if let fileName = fileName {
             destination = directory
                 .appendingPathComponent(fileName)
-                .appendingPathExtension(self.pathExtension)
+                .appendingPathExtension("mp3")
         } else {
             destination = directory
-            .appendingPathComponent(lastPathComponent)
+                .appendingPathComponent(lastPathComponent).appendingPathExtension("mp3")
         }
         if !overwrite, FileManager.default.fileExists(atPath: destination.path) {
             completion(destination, nil)
@@ -34,7 +34,6 @@ extension URL {
                     try FileManager.default.removeItem(at: destination)
                 }
                 try FileManager.default.moveItem(at: location, to: destination)
-                
                 completion(destination, nil)
             } catch {
                 print(error)

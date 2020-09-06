@@ -133,8 +133,22 @@ extension DataModelImpl : DataModel{
         
         api.getGenres(success: { (response) in
             
-            //success(genres)
-            //success(response.genres)
+            for data in response.genres {
+                if !Utils.shared.isExist(id: "\(data.id)", entity: "Genre") {
+                    let genre = Genre(context: context)
+                    genre.id = Int64(data.id)
+                    genre.name = data.name
+                    genre.parentId = Int64(data.parentID ?? 0)
+                }
+                
+            }
+            
+            do {
+                try context.save()
+            
+            } catch {
+                print("fail to save")
+            }
             
         }) { (error) in
             //fail(error)

@@ -9,27 +9,35 @@
 import SwiftUI
 
 struct YourShowsView: View {
+    
+    var userCast : UserPodcast
+    
     var body: some View {
         HStack {
-                Image("podcast-hour")
-                .resizable()
-                .frame(width: 110, height: 150, alignment: .leading)
-                .scaledToFit()
-                .cornerRadius(20)
+            ImageFromUrlView(withURL: userCast.imageUrl ?? "")
+//                Image("podcast-hour")
+//                .resizable()
+//                .frame(width: 110, height: 150, alignment: .leading)
+//                .scaledToFit()
+//                .cornerRadius(20)
                 
             VStack(alignment: .leading, spacing: 14){
-                Text("Category")
+                Text("Web Design")
                     .padding([.leading,.trailing])
                     .padding([.top, .bottom], 8)
                     .background(Color.random)
                     .cornerRadius(15)
-                Text("Woman n Techpost Host by Espree Devona")
+                    .foregroundColor(.black)
+                
+                Text(userCast.title ?? "")
                     .font(.system(size: 18, weight: .bold))
                     .lineLimit(2)
+                    .foregroundColor(.black)
                 
-                Text("Woman n Techpost Host by Espree Devona")
+                AttributedText(userCast.title ?? "")
                     .font(.system(size: 15, weight: .regular))
                     .lineLimit(1)
+                    .foregroundColor(.black)
             }.frame(maxWidth : .infinity)
         }
     }
@@ -37,7 +45,7 @@ struct YourShowsView: View {
 
 struct YourShowsView_Previews: PreviewProvider {
     static var previews: some View {
-        YourShowsView()
+        YourShowsView(userCast: UserPodcast(context: context))
     }
 }
 

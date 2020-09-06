@@ -10,7 +10,24 @@ import SwiftUI
 import CoreData
 
 struct MainTabView: View {
+    
+    @State var isExistShow : Bool = false
+    @State private var selectedTab = 0
+
     var body: some View {
+        
+//        let selection = Binding<Int>(
+//            get: { self.selectedTab },
+//            set: { self.selectedTab = $0
+//                print("Pressed tab: \($0)")
+//                if $0 == 2 {
+//                    if self.isExistYourShows() {
+//                        UserShowsView()
+//                       
+//                    }
+//                }
+//        })
+
         TabView {
             HomeView()
             .tabItem {(
@@ -32,6 +49,7 @@ struct MainTabView: View {
                 )}
             .tag(1)
 
+
             if isExistYourShows() {
                 UserShowsView()
                 .tabItem {(
@@ -42,7 +60,7 @@ struct MainTabView: View {
 
                     )}
                 .tag(2)
-                
+
             } else {
                 WelcomeSearchView()
                 .tabItem {(
@@ -54,7 +72,7 @@ struct MainTabView: View {
                     )}
                 .tag(2)
             }
-            
+
             
             WelcomeSearchView()
             .tabItem {(
@@ -64,14 +82,16 @@ struct MainTabView: View {
                     }
 
                 )}
-            .tag(2)
+            .tag(3)
         }.accentColor(Color(UIColor.systemPink))
+        
     }
     
     
     func isExistYourShows() -> Bool {
         
-        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Episode")
+        let entity = String(describing: UserPodcast.self)
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: entity)
         //fetchRequest.predicate = NSPredicate(format: "id = %d", argumentArray: [id])
 
         let res = try! context.fetch(fetchRequest)

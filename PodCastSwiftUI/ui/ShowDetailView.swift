@@ -11,14 +11,6 @@ import AVKit
 
 struct ShowDetailView: View {
     
-//    @State var audioPlayer:AVAudioPlayer?
-//
-//    @State var isPlaying : Bool = false
-//
-//    @FetchRequest(entity: ListenPodcast.entity(), sortDescriptors: [
-//           NSSortDescriptor(key: "id", ascending: true)
-//    ]) var justListen : FetchedResults<ListenPodcast>
-//
     var detail : Episode
     
     @ObservedObject var model = DataModelImpl()

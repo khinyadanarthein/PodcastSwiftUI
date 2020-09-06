@@ -17,7 +17,7 @@ class MusicPlayerModel: ObservableObject {
     var audioPlayer : AVPlayer!
     var song : Song!
     
-    static let shared = MusicPlayerModel()
+    //static let shared = MusicPlayerModel()
     
     @Published var onGoingPlaybackTime : String = "0:00"
     @Published var playbackDurationTime : String = "0:00"

@@ -37,6 +37,7 @@ struct HomeView: View {
                         trailing: 0))
                 
             }
+            .foregroundColor(.none)
             .padding([.leading, .trailing] ,15)
             //.onAppear(perform: loadData)
             .navigationBarTitle("")

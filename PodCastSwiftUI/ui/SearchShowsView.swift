@@ -48,7 +48,7 @@ struct SearchShowsView: View {
                 }.padding()
                 
             }
-        }.onAppear(perform: loadGenre)
+        }//.onAppear(perform: loadGenre)
     }
     
     func loadGenre() {
