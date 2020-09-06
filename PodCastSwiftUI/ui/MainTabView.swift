@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import CoreData
 
 struct MainTabView: View {
     var body: some View {
@@ -31,15 +32,29 @@ struct MainTabView: View {
                 )}
             .tag(1)
 
-            UserShowsView()
-            .tabItem {(
-                VStack {
-                    Image(systemName: "icloud.and.arrow.down").font(.system(size: 24, weight: .regular))
-                    //Text("cloud")
-                    }
+            if isExistYourShows() {
+                UserShowsView()
+                .tabItem {(
+                    VStack {
+                        Image(systemName: "icloud.and.arrow.down").font(.system(size: 24, weight: .regular))
+                        //Text("cloud")
+                        }
 
-                )}
-            .tag(2)
+                    )}
+                .tag(2)
+                
+            } else {
+                WelcomeSearchView()
+                .tabItem {(
+                    VStack {
+                        Image(systemName: "icloud.and.arrow.down").font(.system(size: 24, weight: .regular))
+                        //Text("cloud")
+                        }
+
+                    )}
+                .tag(2)
+            }
+            
             
             ShowDetailView()
             .tabItem {(
@@ -51,6 +66,16 @@ struct MainTabView: View {
                 )}
             .tag(2)
         }.accentColor(Color(UIColor.systemPink))
+    }
+    
+    
+    func isExistYourShows() -> Bool {
+        
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Episode")
+        //fetchRequest.predicate = NSPredicate(format: "id = %d", argumentArray: [id])
+
+        let res = try! context.fetch(fetchRequest)
+        return res.count > 0 ? true : false
     }
 }
 

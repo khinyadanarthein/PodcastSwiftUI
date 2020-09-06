@@ -17,8 +17,23 @@ class ApiClient : BaseApiClient{
 }
 
 extension ApiClient : Api {
-    func getPlaylists(genreId: Int, page: Int, success: @escaping (EpisodeListResponse) -> Void, fail: @escaping (String) -> Void) {
+    func getPlaylists(genreId: Int, page: Int, pathVariable : String, success: @escaping (EpisodeListResponse) -> Void, fail: @escaping (String) -> Void) {
+        let param = [
+            TYPE : "episode_list",
+            LAST_TIMESTAMP : "0",
+            SORT : "recent_added_first"
+        ]
         
+        let url = API_GET_PLAYLIST + "/\(pathVariable)"
+        
+        self.requestApi(url: url, method: .get, params: param, success: { (response) in
+            
+            let data = try! JSONDecoder().decode(EpisodeListResponse.self, from: response)
+            success(data)
+            
+        }) { (error) in
+            fail(error)
+        }
     }
     
     func getEpisode(id: Int, success: @escaping (EpisodeDetailResponse) -> Void, fail: @escaping (String) -> Void) {
@@ -27,6 +42,15 @@ extension ApiClient : Api {
     
     func getJustListen(success: @escaping (ListenPodCastResponse) -> Void, fail: @escaping (String) -> Void) {
         
+        let param = ["":""]
+        self.requestApi(url: API_GET_PODCAST_LISTEN, method: .get, params: param, success: { (response) in
+            
+            let data = try! JSONDecoder().decode(ListenPodCastResponse.self, from: response)
+            success(data)
+            
+        }) { (error) in
+            fail(error)
+        }
     }
     
     func getGenres(success: @escaping (GenreResponse) -> Void, fail: @escaping (String) -> Void) {

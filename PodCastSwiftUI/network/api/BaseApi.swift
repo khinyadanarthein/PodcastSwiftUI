@@ -12,7 +12,8 @@ import SwiftyJSON
 
 open class BaseApiClient {
 
-    static let BASE_URL =  "https://listen-api.listennotes.com/api/v2/"
+    //static let BASE_URL =  "https://listen-api.listennotes.com/api/v2/"
+    static let BASE_URL =  "https://2f104bf0-c26f-4b7a-9738-5310d4974833.mock.pstmn.io/ok/"
     
     public var session : Session = AF
     

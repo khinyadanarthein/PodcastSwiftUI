@@ -14,7 +14,12 @@ struct ShowDetailView: View {
     @State var audioPlayer:AVAudioPlayer?
 
     @State var isPlaying : Bool = false
-
+    
+    @FetchRequest(entity: ListenPodcast.entity(), sortDescriptors: [
+           NSSortDescriptor(key: "id", ascending: true)
+    ]) var justListen : FetchedResults<ListenPodcast>
+    
+    
     var body: some View {
         List {
             VStack(spacing : 20) {
@@ -53,7 +58,7 @@ struct ShowDetailView: View {
                     .cornerRadius(15)
                     .multilineTextAlignment(.leading)
                 
-                MusicPlayerView()
+                MusicPlayerView(listenPod: justListen.first!)
                 .cornerRadius(15)
                 .padding([.top, .bottom])
                 

@@ -39,6 +39,9 @@
 		C153AA3A24FEC5B4001E5D64 /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C153AA3924FEC5B4001E5D64 /* AppConstants.swift */; };
 		C153AA3D24FEC5D5001E5D64 /* ApiConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C153AA3C24FEC5D5001E5D64 /* ApiConstants.swift */; };
 		C153AA4024FECF0B001E5D64 /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = C153AA3F24FECF0B001E5D64 /* Api.swift */; };
+		C15921A025038192006A1B76 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = C159219F25038192006A1B76 /* Utils.swift */; };
+		C15921A3250388DB006A1B76 /* ListenPodcast+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C15921A1250388DB006A1B76 /* ListenPodcast+CoreDataClass.swift */; };
+		C15921A4250388DB006A1B76 /* ListenPodcast+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C15921A2250388DB006A1B76 /* ListenPodcast+CoreDataProperties.swift */; };
 		C168CF392500C4E500B90EE6 /* Podcast+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C168CF332500C4E500B90EE6 /* Podcast+CoreDataClass.swift */; };
 		C168CF3A2500C4E500B90EE6 /* Podcast+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C168CF342500C4E500B90EE6 /* Podcast+CoreDataProperties.swift */; };
 		C168CF3B2500C4E500B90EE6 /* Episode+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C168CF352500C4E500B90EE6 /* Episode+CoreDataClass.swift */; };
@@ -48,6 +51,7 @@
 		C172EBD324F8D9030045C94F /* HeaderSectionViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = C172EBD224F8D9030045C94F /* HeaderSectionViews.swift */; };
 		C172EBD524F8DA5F0045C94F /* YourShowsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C172EBD424F8DA5F0045C94F /* YourShowsView.swift */; };
 		C172EBD824F91A560045C94F /* WelcomeSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C172EBD624F919810045C94F /* WelcomeSearchView.swift */; };
+		C182378925049AB0001E20A9 /* HtmlText.swift in Sources */ = {isa = PBXBuildFile; fileRef = C182378825049AB0001E20A9 /* HtmlText.swift */; };
 		C198B82124F6CC6F00C21D36 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C198B82024F6CC6F00C21D36 /* MainTabView.swift */; };
 		C1A83D4224FD610E0027718B /* Dao.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A83D4124FD610E0027718B /* Dao.swift */; };
 		C1AA3E602500F5D4008147F6 /* MusicPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1AA3E5F2500F5D4008147F6 /* MusicPlayerView.swift */; };
@@ -117,6 +121,9 @@
 		C153AA3924FEC5B4001E5D64 /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
 		C153AA3C24FEC5D5001E5D64 /* ApiConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiConstants.swift; sourceTree = "<group>"; };
 		C153AA3F24FECF0B001E5D64 /* Api.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Api.swift; sourceTree = "<group>"; };
+		C159219F25038192006A1B76 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		C15921A1250388DB006A1B76 /* ListenPodcast+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ListenPodcast+CoreDataClass.swift"; sourceTree = "<group>"; };
+		C15921A2250388DB006A1B76 /* ListenPodcast+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ListenPodcast+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		C168CF332500C4E500B90EE6 /* Podcast+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Podcast+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
 		C168CF342500C4E500B90EE6 /* Podcast+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Podcast+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 		C168CF352500C4E500B90EE6 /* Episode+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Episode+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
@@ -126,6 +133,7 @@
 		C172EBD224F8D9030045C94F /* HeaderSectionViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderSectionViews.swift; sourceTree = "<group>"; };
 		C172EBD424F8DA5F0045C94F /* YourShowsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourShowsView.swift; sourceTree = "<group>"; };
 		C172EBD624F919810045C94F /* WelcomeSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeSearchView.swift; sourceTree = "<group>"; };
+		C182378825049AB0001E20A9 /* HtmlText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HtmlText.swift; sourceTree = "<group>"; };
 		C198B82024F6CC6F00C21D36 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
 		C1A83D4124FD610E0027718B /* Dao.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dao.swift; sourceTree = "<group>"; };
 		C1AA3E5F2500F5D4008147F6 /* MusicPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicPlayerView.swift; sourceTree = "<group>"; };
@@ -191,6 +199,7 @@
 				C135AC9324FA08E0006799DF /* ProgressView.swift */,
 				C1AA3E5F2500F5D4008147F6 /* MusicPlayerView.swift */,
 				C1AA3E612500F64A008147F6 /* PlayBackTImerView.swift */,
+				C182378825049AB0001E20A9 /* HtmlText.swift */,
 			);
 			path = component;
 			sourceTree = "<group>";
@@ -283,6 +292,7 @@
 			children = (
 				C153AA3924FEC5B4001E5D64 /* AppConstants.swift */,
 				C153AA3C24FEC5D5001E5D64 /* ApiConstants.swift */,
+				C159219F25038192006A1B76 /* Utils.swift */,
 			);
 			path = utils;
 			sourceTree = "<group>";
@@ -338,6 +348,8 @@
 		C1A83D3C24FD60730027718B /* persistence */ = {
 			isa = PBXGroup;
 			children = (
+				C15921A1250388DB006A1B76 /* ListenPodcast+CoreDataClass.swift */,
+				C15921A2250388DB006A1B76 /* ListenPodcast+CoreDataProperties.swift */,
 				C168CF332500C4E500B90EE6 /* Podcast+CoreDataClass.swift */,
 				C168CF342500C4E500B90EE6 /* Podcast+CoreDataProperties.swift */,
 				C168CF352500C4E500B90EE6 /* Episode+CoreDataClass.swift */,
@@ -629,8 +641,10 @@
 				C14CE1D424F2685A0028249E /* SearchShowsView.swift in Sources */,
 				C168CF392500C4E500B90EE6 /* Podcast+CoreDataClass.swift in Sources */,
 				C135AC9424FA08E0006799DF /* ProgressView.swift in Sources */,
+				C15921A025038192006A1B76 /* Utils.swift in Sources */,
 				C168CF3E2500C4E500B90EE6 /* Genre+CoreDataProperties.swift in Sources */,
 				C14CE1D224F268360028249E /* UserShowsView.swift in Sources */,
+				C15921A4250388DB006A1B76 /* ListenPodcast+CoreDataProperties.swift in Sources */,
 				C153AA3A24FEC5B4001E5D64 /* AppConstants.swift in Sources */,
 				C198B82124F6CC6F00C21D36 /* MainTabView.swift in Sources */,
 				C168CF3A2500C4E500B90EE6 /* Podcast+CoreDataProperties.swift in Sources */,
@@ -639,6 +653,7 @@
 				C172EBD324F8D9030045C94F /* HeaderSectionViews.swift in Sources */,
 				C14CE19C24F267670028249E /* AppDelegate.swift in Sources */,
 				C1A83D4224FD610E0027718B /* Dao.swift in Sources */,
+				C182378925049AB0001E20A9 /* HtmlText.swift in Sources */,
 				C129AD762500078200070137 /* ApiClient.swift in Sources */,
 				C153AA3124FEBF25001E5D64 /* ListenPodCastResponse.swift in Sources */,
 				C129AD7A250019DA00070137 /* SearchShowViewModel.swift in Sources */,
@@ -646,6 +661,7 @@
 				C1AA3E622500F64A008147F6 /* PlayBackTImerView.swift in Sources */,
 				C168CF3C2500C4E500B90EE6 /* Episode+CoreDataProperties.swift in Sources */,
 				C153AA4024FECF0B001E5D64 /* Api.swift in Sources */,
+				C15921A3250388DB006A1B76 /* ListenPodcast+CoreDataClass.swift in Sources */,
 				C14CE1A324F267670028249E /* ContentView.swift in Sources */,
 				C139D83924F814F300B97D5F /* UpNextListView.swift in Sources */,
 				C168CF3B2500C4E500B90EE6 /* Episode+CoreDataClass.swift in Sources */,

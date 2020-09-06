@@ -10,12 +10,12 @@ import Foundation
 
 protocol DataModel {
     
-    func getEpisodeList(genreId : Int, page: Int, success: @escaping (EpisodeData) -> Void, fail: @escaping (String) -> Void)
+    func getEpisodeList(genreId : Int, page: Int)
     
-    func getEpisodeDetail(id : Int, success: @escaping (EpisodeDetailResponse) -> Void, fail: @escaping (String) -> Void)
+    func getEpisodeDetail(id : Int)
     
-    func getListenPodCast(success: @escaping (ListenPodCastResponse) -> Void, fail: @escaping (String) -> Void)
+    func getListenPodCast()
     
-    func getGenreList(success: @escaping ([GenreVO]) -> Void, fail: @escaping (String) -> Void)
+    func getGenreList()
     
 }

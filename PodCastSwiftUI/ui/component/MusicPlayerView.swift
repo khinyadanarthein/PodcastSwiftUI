@@ -16,8 +16,17 @@ struct MusicPlayerView: View {
     
     @ObservedObject var model : MusicPlayerModel
     
-    init(_ currentPlaybackTimeInSec : Binding<CGFloat> = .constant(0)) {
-        model = MusicPlayerModel()
+    
+    @FetchRequest(entity: ListenPodcast.entity(), sortDescriptors: [
+           NSSortDescriptor(key: "id", ascending: true)
+    ]) var justListen : FetchedResults<ListenPodcast>
+    
+    var listen : ListenPodcast
+    
+    init(listenPod: ListenPodcast,_ currentPlaybackTimeInSec : Binding<CGFloat> = .constant(0)) {
+        listen = listenPod
+        model = MusicPlayerModel(song: Song(name: listen.title ?? "", url: listen.audioUrl ?? "https://www.listennotes.com/e/p/11b34041e804491b9704d11f283c74de/"))
+        //model.song = Song(name: listen.title!, url: listen.audioUrl!)
         self._currentPlaybackTimeInSec = currentPlaybackTimeInSec
     }
     
@@ -72,19 +81,25 @@ struct MusicPlayerView: View {
 
 struct MusicPlayerView_Previews: PreviewProvider {
     static var previews: some View {
-        MusicPlayerView()
+        MusicPlayerView(listenPod: ListenPodcast(context: context))
     }
 }
 
-struct Song {
-    let name : String
-    let playbackUrl: String
+class Song {
+    var name : String
+    var playbackUrl: String
+    
+    init(name : String, url : String) {
+        self.name = name
+        playbackUrl = url
+    }
 }
 
 class MusicPlayerModel: ObservableObject {
     var audioPlayer : AVPlayer
-    
-    let song = Song(name: "How You Like That - BlackPink", playbackUrl: "https://1aza.com/api/public/dl/SVpZYZut/blackpink%20how%20you%20like%20that.mp3")
+    var song : Song
+//    var name : String
+//    var url : String
     
     @Published var onGoingPlaybackTime : String = "0:00"
     @Published var playbackDurationTime : String = "0:00"
@@ -96,9 +111,9 @@ class MusicPlayerModel: ObservableObject {
     private var playbackDuration : CGFloat = 0
     var timeObserverToken : Any?
     
-    init() {
+    init(song : Song) {
+        self.song = song
         self.audioPlayer = AVPlayer(url: URL(string: song.playbackUrl)!)
-        
         addTimeObserver()
     }
     

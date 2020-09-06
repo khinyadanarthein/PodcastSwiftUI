@@ -11,13 +11,13 @@ import CoreData
 
 struct SearchShowsView: View {
     
-    @State var genreList = [GenreVO]()
+    //@State var genreList = [GenreVO]()
     
     @FetchRequest(entity: Genre.entity(), sortDescriptors: [
            NSSortDescriptor(key: "name", ascending: true)
     ]) var genrelist : FetchedResults<Genre>
     
-    let model = DataModelImpl.shared
+    let model = DataModelImpl()
     
     var body: some View {
         ScrollView {
@@ -55,13 +55,16 @@ struct SearchShowsView: View {
         model.getGenreList(success: { (datalist) in
             
             //self.genreList = datalist
-            let genres = [GenreVO(id: 1, name: "Tech", parentID: 1), GenreVO(id: 2, name: "IT", parentID: 2)]
+            //let genres = [GenreVO(id: 1, name: "Tech", parentID: 1), GenreVO(id: 2, name: "IT", parentID: 2)]
             
-            for data in genres {
-                let genre = Genre(context :context)
-                genre.id = Int64(data.id)
-                genre.name = data.name
-                genre.parentId = Int64(data.parentID ?? 0)
+            for data in datalist {
+                if !self.isExist(id: data.id) {
+                    
+                    let genre = Genre(context :context)
+                    genre.id = Int64(data.id)
+                    genre.name = data.name
+                    genre.parentId = Int64(data.parentID ?? 0)
+                }
             }
             
             do {
@@ -72,24 +75,7 @@ struct SearchShowsView: View {
             }
             
         }) { (error) in
-            let genres = [GenreVO(id: 1, name: "Tech", parentID: 1), GenreVO(id: 2, name: "IT", parentID: 2),GenreVO(id: 3, name: "IT", parentID: 2)]
-                       
-            for data in genres {
-                
-               if !self.isExist(id: data.id) {
-                    let genre = Genre(context :context)
-                    genre.id = Int64(data.id)
-                    genre.name = data.name
-                    genre.parentId = Int64(data.parentID ?? 0)
-                }
-            }
-            
-            do {
-                try context.save()
-                
-            } catch {
-                print("fail to save")
-            }
+            print(error)
             
         }
     }
@@ -123,6 +109,7 @@ struct CategoryView: View {
             .frame(width: 150, height: 150, alignment: .leading)
             
             Text(genreName)
+                .font(Font.system(size: 12).bold())
             .padding([.leading,.trailing])
             .padding([.top, .bottom], 8)
                 .background(Color.random)

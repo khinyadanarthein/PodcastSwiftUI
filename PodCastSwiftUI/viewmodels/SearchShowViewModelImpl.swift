@@ -8,21 +8,21 @@
 
 import Foundation
 
-class SearchShowViewModelImpl : SearchShowViewModel{
-    
-    let model = DataModelImpl.shared
-    var genres = [GenreVO]()
-    
-    func fetchGenre() {
-        model.getGenreList(success: { (data) in
-            
-            self.genres = data
-            
-        }) { (error) in
-            
-        }
-    }
-    
-    
-    
-}
+//class SearchShowViewModelImpl : SearchShowViewModel{
+//    
+//    let model = DataModelImpl.shared
+//    var genres = [GenreVO]()
+//    
+//    func fetchGenre() {
+//        model.getGenreList(success: { (data) in
+//            
+//            self.genres = data
+//            
+//        }) { (error) in
+//            
+//        }
+//    }
+//    
+//    
+//    
+//}
