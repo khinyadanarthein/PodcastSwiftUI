@@ -53,11 +53,11 @@ struct JustListenPlaybackView : View {
     var body : some View {
         Section(header: PodCastHeaderSection().background(Color(UIColor.white))) {
             
-            MusicPlayerView(listenPod: justListen.last!)
+            MusicPlayerView(listenPod: justListen.last)
                 .cornerRadius(15)
                 .padding([.top, .bottom])
             
-            AttributedText(justListen.last!.castDescription ?? "")
+            AttributedText(justListen.last?.castDescription ?? "")
                 .frame(maxWidth : .infinity, maxHeight: 100)
                 .padding()
                 .background(Color.init(UIColor.systemGray5))

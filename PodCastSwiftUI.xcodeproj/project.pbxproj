@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		51C307612504CB27004B981A /* MusicPlayerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51C307602504CB27004B981A /* MusicPlayerModel.swift */; };
+		51C307632504CB7C004B981A /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51C307622504CB7C004B981A /* ActivityIndicator.swift */; };
 		85761084CA6F44804DDDA8C6 /* Pods_PodCastSwiftUI_PodCastSwiftUIUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 106B2BFBCDD05A696266D026 /* Pods_PodCastSwiftUI_PodCastSwiftUIUITests.framework */; };
 		9CB3B87ED3C5DEF3DEB6C823 /* Pods_PodCastSwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 822E47E5934D1AC1722091B6 /* Pods_PodCastSwiftUI.framework */; };
 		C129AD7424FF4F4B00070137 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C129AD7324FF4F4B00070137 /* DataModel.swift */; };
@@ -82,6 +84,8 @@
 		15E894E5C9B6DAB6BEC633A7 /* Pods-PodCastSwiftUI-PodCastSwiftUIUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PodCastSwiftUI-PodCastSwiftUIUITests.debug.xcconfig"; path = "Target Support Files/Pods-PodCastSwiftUI-PodCastSwiftUIUITests/Pods-PodCastSwiftUI-PodCastSwiftUIUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		4473D7C72259F40AAE037879 /* Pods_PodCastSwiftUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PodCastSwiftUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4937F55139F413F4909CF016 /* Pods-PodCastSwiftUI-PodCastSwiftUIUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PodCastSwiftUI-PodCastSwiftUIUITests.release.xcconfig"; path = "Target Support Files/Pods-PodCastSwiftUI-PodCastSwiftUIUITests/Pods-PodCastSwiftUI-PodCastSwiftUIUITests.release.xcconfig"; sourceTree = "<group>"; };
+		51C307602504CB27004B981A /* MusicPlayerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicPlayerModel.swift; sourceTree = "<group>"; };
+		51C307622504CB7C004B981A /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 		6A70AB645E2CC5AD5B3284F7 /* Pods-PodCastSwiftUI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PodCastSwiftUI.debug.xcconfig"; path = "Target Support Files/Pods-PodCastSwiftUI/Pods-PodCastSwiftUI.debug.xcconfig"; sourceTree = "<group>"; };
 		822E47E5934D1AC1722091B6 /* Pods_PodCastSwiftUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PodCastSwiftUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC44DCD88E0DA66B636DB7C7 /* Pods-PodCastSwiftUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PodCastSwiftUITests.release.xcconfig"; path = "Target Support Files/Pods-PodCastSwiftUITests/Pods-PodCastSwiftUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -200,6 +204,7 @@
 				C1AA3E5F2500F5D4008147F6 /* MusicPlayerView.swift */,
 				C1AA3E612500F64A008147F6 /* PlayBackTImerView.swift */,
 				C182378825049AB0001E20A9 /* HtmlText.swift */,
+				51C307622504CB7C004B981A /* ActivityIndicator.swift */,
 			);
 			path = component;
 			sourceTree = "<group>";
@@ -366,6 +371,7 @@
 			children = (
 				C129AD7324FF4F4B00070137 /* DataModel.swift */,
 				C129AD7725000C0400070137 /* DataModelImpl.swift */,
+				51C307602504CB27004B981A /* MusicPlayerModel.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -652,7 +658,9 @@
 				C153AA2F24FEBEC1001E5D64 /* PostCastDetailResponse.swift in Sources */,
 				C172EBD324F8D9030045C94F /* HeaderSectionViews.swift in Sources */,
 				C14CE19C24F267670028249E /* AppDelegate.swift in Sources */,
+				51C307632504CB7C004B981A /* ActivityIndicator.swift in Sources */,
 				C1A83D4224FD610E0027718B /* Dao.swift in Sources */,
+				51C307612504CB27004B981A /* MusicPlayerModel.swift in Sources */,
 				C182378925049AB0001E20A9 /* HtmlText.swift in Sources */,
 				C129AD762500078200070137 /* ApiClient.swift in Sources */,
 				C153AA3124FEBF25001E5D64 /* ListenPodCastResponse.swift in Sources */,
