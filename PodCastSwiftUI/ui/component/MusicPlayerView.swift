@@ -21,7 +21,7 @@ struct MusicPlayerView: View {
 //    ]) var justListen : FetchedResults<ListenPodcast>
         
     init(song : Song) {
-        model = MusicPlayerModel()
+        model = MusicPlayerModel.shared
         model.startPlayer(song: song)
         print("\(song.playbackUrl)")
     }

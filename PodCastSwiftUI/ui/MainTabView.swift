@@ -48,31 +48,18 @@ struct MainTabView: View {
 
                 )}
             .tag(1)
-
-
-            if isExistYourShows() {
-                UserShowsView()
+            
+            
+            UserShowsView()
                 .tabItem {(
                     VStack {
                         Image(systemName: "icloud.and.arrow.down").font(.system(size: 24, weight: .regular))
                         //Text("cloud")
-                        }
-
+                    }
+                    
                     )}
                 .tag(2)
-
-            } else {
-                WelcomeSearchView()
-                .tabItem {(
-                    VStack {
-                        Image(systemName: "icloud.and.arrow.down").font(.system(size: 24, weight: .regular))
-                        //Text("cloud")
-                        }
-
-                    )}
-                .tag(2)
-            }
-
+            
             
             WelcomeSearchView()
             .tabItem {(
@@ -83,7 +70,7 @@ struct MainTabView: View {
 
                 )}
             .tag(3)
-        }.accentColor(Color(UIColor.systemPink))
+        }.accentColor(.pink)
         
     }
     

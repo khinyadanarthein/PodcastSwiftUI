@@ -14,7 +14,6 @@ struct UpNextEpisodeListView: View {
         NSSortDescriptor(key: "id", ascending: true)
     ]) var episodeList : FetchedResults<Episode>
     
-    
     var body: some View {
         
         VStack(alignment: .leading) {

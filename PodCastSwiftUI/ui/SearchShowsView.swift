@@ -40,15 +40,12 @@ struct SearchShowsView: View {
                         ForEach(genrelist, id: \.id, content: { data in
                             CategoryView(genreName: data.name ?? "")
                         }).frame(maxWidth: .infinity)
-//                        ForEach(0..<5, content: { _ in
-//                            CategoryView(genreName: "Genre")
-//                        }).frame(maxWidth: .infinity)
-                    //}
-                    
+
                 }.padding()
+                .frame(maxHeight : 200)
                 
             }
-        }//.onAppear(perform: loadGenre)
+        }.onAppear(perform: loadGenre)
     }
     
     func loadGenre() {

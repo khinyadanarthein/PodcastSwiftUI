@@ -8,17 +8,28 @@
 
 import SwiftUI
 import AVFoundation
+import Combine
 
 struct UpNextListView: View {
     
     @State var value : CGFloat = 10
     @State var episode : Episode
     
+    @ObservedObject var download = DownloadModel()
+
     var body: some View {
         
         HStack {
             ImageFromUrlView(withURL: episode.imageUrl ?? "")
             
+//            Image(uiImage: UIImage(named: "podcast-space")!)
+//            .resizable()
+//            .renderingMode(.original)
+//            .frame(height : 100)
+//            .scaledToFit()
+//            .cornerRadius(30)
+//            .padding([.leading, .trailing], 30)
+                
             HStack {
                 VStack(alignment: .leading, spacing: 15){
                     Text("Web Design")
@@ -45,10 +56,13 @@ struct UpNextListView: View {
                     
                 }.frame(maxWidth : .infinity, maxHeight: .infinity)
                 
+                VStack {
                 Image(systemName: "icloud.and.arrow.down").font(.system(size: 25, weight: .regular))
                     .foregroundColor(Color.pink)
                     .onTapGesture {
                         print("download")
+                        self.download.isDownloading = true
+                        
                         let audioUrl = self.episode.audioUrl ?? ""
                         let audioFile = URL(string: audioUrl)!
                         do {
@@ -71,14 +85,16 @@ struct UpNextListView: View {
                                 catch {
                                     print("fail to save")
                                 }
-                                
+                                self.download.isDownloading = false
                             }
                         } catch {
                             print(error)
                         }
                         
                 }
-                
+                    ActivityIndicator(isAnimating: $download.isDownloading, style: .large)
+                        
+                }
             }
         }
     }
@@ -102,6 +118,7 @@ struct ImageFromUrlView: View {
         
         Image(uiImage: image)
             .resizable()
+            .renderingMode(.original)
             .frame(width: 100, height: 150, alignment: .leading)
             .foregroundColor(.none)
             .scaledToFit()
@@ -112,12 +129,9 @@ struct ImageFromUrlView: View {
         }
     }
     
-    //    var body: some View {
-    //        Image(systemName: "podcast")
-    //            .resizable()
-    //            .frame(width: 100, height: 150, alignment: .leading)
-    //            .scaledToFit()
-    //            .cornerRadius(20)
-    //            .padding([.top, .bottom])
-    //    }
+}
+
+class DownloadModel : ObservableObject {
+    
+    @Published var isDownloading = false
 }
