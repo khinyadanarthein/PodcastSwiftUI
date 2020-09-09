@@ -15,7 +15,7 @@ extension URL {
         if let fileName = fileName {
             destination = directory
                 .appendingPathComponent(fileName)
-                .appendingPathExtension("mp3")
+                .appendingPathExtension(pathExtension)
         } else {
             destination = directory
                 .appendingPathComponent(lastPathComponent).appendingPathExtension("mp3")

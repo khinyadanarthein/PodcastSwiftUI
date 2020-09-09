@@ -70,6 +70,7 @@ struct UpNextListView: View {
                                 
                                 guard let url = url else { return }
                                 print(url)
+                                self.download.isDownloading = false
                                 let userCast = UserPodcast(context: context)
                                 userCast.id = self.episode.id
                                 userCast.title = self.episode.title
@@ -85,7 +86,7 @@ struct UpNextListView: View {
                                 catch {
                                     print("fail to save")
                                 }
-                                self.download.isDownloading = false
+                                
                             }
                         } catch {
                             print(error)

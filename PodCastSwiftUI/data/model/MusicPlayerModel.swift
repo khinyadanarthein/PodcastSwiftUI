@@ -34,6 +34,9 @@ class MusicPlayerModel: ObservableObject {
     func startPlayer(song : Song) {
         //Not a good solution. TODO: Fix
         if !isPlaying {
+            self.onGoingPlaybackTime = "0:00"
+            //self.completionPercentage = 0
+            self.isBuffering = false
             self.song = song
             self.audioPlayer = AVPlayer(url: URL(string: song.playbackUrl)!)
             setupConfig()

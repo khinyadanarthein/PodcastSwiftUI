@@ -15,6 +15,10 @@ struct ShowDetailView: View {
     
     @ObservedObject var model = DataModelImpl()
     
+    var musicModel = MusicPlayerModel.shared
+    
+    @State var doPlay : Bool = false
+    
     var body: some View {
         //Text("HEllO")
         ScrollView {
@@ -54,11 +58,25 @@ struct ShowDetailView: View {
                     .background(Color.init(UIColor.systemGray5))
                     .cornerRadius(15)
                     .multilineTextAlignment(.leading)
-
-                MusicPlayerView(song: Song(name: detail.title!, url: detail.audioUrl!, image: detail.imageUrl!))
-                    .cornerRadius(15)
-                    .padding([.top, .bottom])
-
+                
+                if !doPlay {
+                    Button(action: {
+                        self.musicModel.isPlaying = false
+                        self.doPlay = true
+                    }, label: {
+                        Text("Listen Now")
+                        })
+                        .padding()
+                        .frame(maxWidth: .infinity, maxHeight: 60, alignment: .center)
+                        .background(Color(UIColor(named: "sky-blue")!))
+                        .foregroundColor(Color.black)
+                        .cornerRadius(15)
+                } else {
+                    MusicPlayerView(song: Song(name: detail.title!, url: detail.audioUrl!, image: detail.imageUrl!))
+                                       .cornerRadius(15)
+                                       .padding([.top, .bottom])
+                                   
+                }
             }.frame(maxWidth : .infinity, alignment: .leading)
 
 
